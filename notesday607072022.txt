@@ -826,7 +826,6 @@ public void add(){
  switch(choice){
  case 1 :  calculator.add();
            break;
- 
  case 2 : calculator.subtract();
           break;
  case 3 :  calculator.divide();
@@ -836,7 +835,315 @@ public void add(){
  default : System.out.println("Your option is wrong. Enter the value 1-4");
   }//end of switch case
 } // end of main
-
 } // end of class
 
+---------------------------------------------------------------------------------------
 
+Q) Cant we write main method in a separate class?
+A) Yes
+
+/* 
+ * We are writing different classes for main and the actual data and actions
+ * method with return value
+ * 
+ */
+public class Calc {
+ // We have num1,num2 and result as instance variables
+ public int num1;
+ public int num2;
+ public int result; // This result is a member variable of Calc class
+ 
+ public void setData(int n1,int n2)
+ {
+	 num1=n1;
+	 num2=n2;
+ }
+ 
+ public int add() {
+	 result=num1+num2;
+	 return result;
+ }
+ 
+ public int subtract()
+ {
+	 result=num1-num2;
+	 return result;
+ }
+}
+
+
+
+public class Tester {
+
+	public static void main(String[] args) {
+		Calc calc=new Calc();
+		calc.setData(20, 10);
+        int result=calc.add(); // This result is local to the main method in 
+        // Tester and is not same as the result of the Calc class
+        System.out.println(result);
+        result=calc.subtract();   
+        System.out.println(result);
+        calc.num1=0;
+        calc.num2=0;
+        result=calc.add();
+        System.out.println(result);
+        
+	}
+
+}
+
+-----------------------------------------------------
+
+
+/*
+ * If we declare the members as private, they are accessible only within the 
+ * class and they are not accessible outside the class
+ */
+public class Calc2 {
+ // We have num1,num2 and result as instance variables
+ private int num1;
+ private int num2;
+ private int result; // This result is a member variable of Calc class
+ 
+ public void setData(int n1,int n2)
+ {
+	 num1=n1;
+	 num2=n2;
+ }
+ 
+ public int add() {
+	 result=num1+num2;
+	 return result;
+ }
+ 
+ public int subtract()
+ {
+	 result=num1-num2;
+	 return result;
+ }
+}
+
+
+public class Tester2 {
+
+	public static void main(String[] args) {
+		Calc2 calc=new Calc2();
+		calc.setData(20, 10);
+        int result=calc.add(); // This result is local to the main method in 
+        // Tester and is not same as the result of the Calc class
+        System.out.println(result);
+        result=calc.subtract();   
+        System.out.println(result);
+        //calc.num1=0;  //The field Calc2.num1 is not visible
+        //calc.num2=0;  //The field Calc2.num1 is not visible
+        result=calc.add();
+        System.out.println(result);
+        
+	}
+
+}
+-----------------------------------------------------------------------------------------------------------
+Whenever we are designing a class we have two types of member:-
+1) instance variables
+2) member methods
+
+instance variables we usually use the private access
+member methods we use the access as public 
+--------------------------------------------------------------------------------------------------------
+
+
+/*
+ * If we are not writing any access specifier with a member
+ * it is called as default or package access specifier
+ * Here Tester3 will be able to access the members because
+ * both Calc3 and Test3 are in same package ( default package)
+ */
+public class Calc3 {
+	// We have num1,num2 and result as instance variables
+	int num1;
+	int num2;
+	int result; // This result is a member variable of Calc class
+
+	void setData(int n1, int n2) {
+		num1 = n1;
+		num2 = n2;
+	}
+
+	int add() {
+		result = num1 + num2;
+		return result;
+	}
+
+	int subtract() {
+		result = num1 - num2;
+		return result;
+	}
+}
+
+
+
+
+
+public class Tester3 {
+
+	public static void main(String[] args) {
+		Calc3 calc = new Calc3();
+		calc.setData(20, 10);
+		int result = calc.add(); // This result is local to the main method in
+		// Tester and is not same as the result of the Calc class
+		System.out.println(result);
+		result = calc.subtract();
+		System.out.println(result);
+		 calc.num1=0; 
+		calc.num2=0; 
+		result = calc.add();
+		System.out.println(result);
+
+	}
+
+}
+------------------------------------------------------------------------------------------------------
+We have 4 access specifiers:
+*private ( private is more restricted in access as they are accessible in the same class only)
+*default ( default members are accessible in the same package)
+*protected ( protected members are accessible by the derived/inherited classes)
+*public    ( public members are accessible from anywhere)
+----------------------------------------------------------------------------------------------------
+We always try to hide the data within a class and that we do with the help of private access specifier.
+---------------------------------------------------------------------------------------------------------
+public class Student {
+private int roll;
+private String name;
+private int marks;
+
+public void setData(int r,String n, int m)
+{
+	roll=r;
+	name=n;
+	marks=m;
+}
+
+/*
+ * public void dispData() {
+ * System.out.println("Roll"+roll+"Name"+name+"Marks"+marks);
+ * 
+ * }
+ */
+
+public String getData() {
+	String data="Roll "+roll+" Name "+name+" Marks "+marks;
+	return data;
+}
+
+
+}
+
+
+
+public class StudentMain {
+
+	public static void main(String[] args) {
+		Student student1=new Student();
+		Student student2=new Student();
+		student1.setData(1, "Ravi", 100);
+		student2.setData(2, "Ashok", 90);
+		String studentData1=student1.getData();
+		String studentData2=student2.getData();
+		System.out.println(studentData1);
+		System.out.println(studentData2);
+	}
+
+}
+-----------------------------------------------------------------------------------------
+Let us revise from scratch:-
+1) Create a project====> File ===> New Project =====> Finish
+2) We need to create a package===> Right click on the project====> New Package====> com.infy
+3) Create a java class called Customer within the package created ===> Right click on the package===>New===> class
+
+----------------------------
+
+package com.infy;
+
+public class Customer {
+ private int custId;
+ private String customerName;
+ private String address;
+ 
+ public void setData(int custId, String customerName, String address)
+ {
+	 // custId which is a parameter is getting priority
+	 // and that is the reason the below code
+	 // becomes custId being assigned to custId which is 
+	 // the parameter ( local variable)
+	 custId=custId;
+	 customerName=customerName;
+	 address=address;
+ }
+ 
+ public void showData() {
+	 System.out.println(custId);
+	 System.out.println(customerName);
+	 System.out.println(address);
+ }
+}
+
+
+package com.infy.main;
+
+import com.infy.Customer;
+// ctrl+shift+o ( shortcut to get the import for the class in different package
+public class CustomerMain {
+
+	public static void main(String[] args) {
+		Customer cust=new Customer();
+		cust.setData(1, "Ram", "A/122 Delhi");
+		cust.showData();  // 0 null null
+		// the default value of int is 0
+		// the default value for object reference is null
+
+	}
+
+}
+----------------------------------------------------------------------------
+package com.infy;
+
+public class Customer2 {
+ private int custId;
+ private String customerName;
+ private String address;
+ 
+ public void setData(int custId, String customerName, String address)
+ {
+	 // with the usage of this keyword with the variable
+	 // in LHS , we are saying that the custId,customerName
+	 // and address in the LHS belongs to the current object
+	 // and the variables in the RHS are the parameters or 
+	 // the local variables
+	 this.custId=custId;
+	 this.customerName=customerName;
+	 this.address=address;
+ }
+ 
+ public void showData() {
+	 System.out.println(custId);
+	 System.out.println(customerName);
+	 System.out.println(address);
+ }
+}
+
+package com.infy.main;
+
+import com.infy.Customer2;
+
+public class CustomerMain2 {
+
+	public static void main(String[] args) {
+		Customer2 cust=new Customer2();
+		cust.setData(1, "Ram", "A/122 Delhi");
+		cust.showData();  // 1 Ram A/122 Delhi
+		// the default value of int is 0
+		// the default value for object reference is null
+	}
+
+}
+---------------------------------------------------------------------------------------------------------
