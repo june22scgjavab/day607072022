@@ -363,10 +363,148 @@ Iterations:
      } // end of main method
    }  // end of class
 
+---------------------------------------------------------------------------------------------------------------
+
+With if , we can compare a range of values but in case of switch case we can go for selective constant
+choices. So if we have some fixed set of options/choices to compare then we will go for switch construct.
+
+---------------------------------------------------------------------------------------------------------
+
+Difference between while and do while loops...
+while loop is an entry point loop as the condition is checked while entering the while loop whereas
+do while loop is an exit point check loop as the condition is checked after the loop is getting executed.
+So in case of do while loop if the condition is false , then also it will execute once.
+
+public class WhileDemo {
+  public static void main(String args[]){
+     int i=10;
+     while(i<10){
+      System.out.println("I am within the loop");
+      i++;
+     }
+     System.out.println("Outside the loop");
+   }
+ }
 
 
+public class DoWhileDemo {
+  public static void main(String args[]){
+     int i=10;
+    do{
+      System.out.println("I am within the loop");
+      i++;
+     }while(i<10);
+     System.out.println("Outside the loop");
+   }
+ }
+
+----------------------------------------------------------------------------------------------------
+while ... do while ... for loop
+public class ForLoopDemo1 {
+   public static void main(String args[]){
+   for(int i=1;i<11;i++){
+          System.out.println(i);
+    }
+
+   }
+ }
+
+public class ForLoopDemo2 {
+   public static void main(String args[]){
+   for(int i=1;i<11;i=i+2){
+          System.out.println(i);
+    }
+
+   }
+ }
+
+public class ForLoopDemo3 {
+   public static void main(String args[]){
+    int i=1;
+   for(;i<11;i=i+2){
+          System.out.println(i);
+    }
+
+   }
+ }
+
+public class ForLoopDemo4 {
+   public static void main(String args[]){
+    int i=1;
+   for(;i<11;){
+          System.out.println(i);
+          i++;
+    }
+
+   }
+ }
 
 
+public class ForLoopDemo5 {
+   public static void main(String args[]){
+ 
+   for(;;){
+          System.out.println("Hello");
+         
+    }
+
+   }
+ }
+[ The above code display Hello infinite number of times.
+-------------------------------------------------------------------------------------------------------
+break;
+
+Enter numbers from user until unless user enters 0 and perform the addition of the entered numbers.
+
+import java.util.Scanner;
+public class BreakDemo {
+   public static void main(String args[]){
+   Scanner scanner=new Scanner(System.in);
+   int num;
+   int sum=0;
+ 
+   while(true){
+	   System.out.println("Enter the number");
+	   num=scanner.nextInt();
+     if(num==0){
+       break;
+     }
+   /* else{
+      sum+=num;
+     } */
+     sum+=num;
+   }
+   System.out.println("The added value:"+sum);
+   }
+}
+-----------------------------------------------------------------------------------
+continue
+Wherever we use continue , the code wont execute anything after the continue statement and the control
+will move to the next iteration. Continue accepting a value from user
+and if the value is even , then only perform the sum otherwise continue
+with the next iteration and with 0 stop the execution.
+import java.util.Scanner;
+public class ContinueDemo {
+   public static void main(String args[]){
+   Scanner scanner=new Scanner(System.in);
+   int num;
+   int sumEven=0;
+ 
+   while(true){
+	   System.out.println("Enter the number");
+	   num=scanner.nextInt();
+     if(num==0){
+       break;
+     }
+     if(num%2!=0){
+      continue;
+     }
+
+     sumEven+=num;
+   }
+   System.out.println("The added value of even numbers:"+sumEven);
+   }
+}
 
 
 
