@@ -506,5 +506,247 @@ public class ContinueDemo {
    }
 }
 
+------------------------------------------------------------------------------------------------------
+Till now whatever code we wrote , everything we performed within the main method. But that is not a very good
+way of writing code. One point we understood that main method has to be there otherwise we wont be able to
+execute our code.
+
+Let us create a class Called Greet, which will have the message Hello Friends!!!!.
+
+public class Greet1 {
+    public static void main(String args[]){
+     String message="Hello Friends!!!";
+     System.out.println(message);
+   }
+ }
+
+[ Here we are declaring message local to main method. local means confined to a block ( that block can be 
+a method or if construct or a loop construct )]
+
+What about accessing the message in some other method like display().
 
 
+public class Greet2 {
+  
+   public static void display(){
+    System.out.println("Hello Friends");
+   }
+
+   public static void main(String args[]) {
+     display();   
+  }
+ }
+   
+// we made one different method display to print Hello Friends. display is again static method with return 
+value as void. 
+Do we need to write static with all the other methods also?
+Ans : No
+
+public class Greet3 {
+  
+   public  void display(){
+    System.out.println("Hello Friends");
+   }
+
+   public static void main(String args[]) {
+    // display();
+	//Cannot make a static reference to the non-static method display() from the type Greet3
+  }
+ }
+
+
+public class Greet4 {
+   public void display(){
+    System.out.println("Hello Friends");
+   }
+
+   public static void main(String args[]) {
+     Greet4 greet=new Greet4();
+       greet.display();
+	//Cannot make a static reference to the non-static method display() from the type Greet3
+  }
+ }
+
+[ Dont try to keep everything within the main method ... Try to design different method for performing specific
+tasks. ]
+--------------------------------------------------------------------------------------------------------
+
+Design a class Calculator with methods like add,subtract,divide and multiply and call them from the main method.
+
+
+public class CalculatorExercise1 {
+
+// add()
+// subtract()
+// divide()
+// multiply()
+
+ public static void main(String[] args){
+ add();
+ subtract();
+ divide();
+ multiply();
+}
+
+
+
+}
+--------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+public class CalculatorExercise1 {
+public void add(){
+  int num1=20;
+  int num2=10;
+  int result=num1+num2;
+  //System.out.println(num1+num2);
+  System.out.println("The result is "+result);
+}
+
+ public void subtract(){
+ int num1=100;
+ int num2=20;
+ int result=num1-num2;
+ System.out.println("The result is "+result); //result 
+}
+// divide()
+// multiply()
+
+ public static void main(String[] args){
+ CalculatorExercise1 calculator=new CalculatorExerise1();
+ calculator.add();
+ calculator.subtract();
+ calculator.divide();
+ calculator.multiply();
+}
+}
+
+
+
+// Let us plan an alternative of user input to make it better.
+
+import java.util.Scanner;
+public class CalculatorExercise1b {
+
+public void add(){
+  int num1;
+  int num2;
+  Scanner scan=new Scanner(System.in);
+  System.out.println("Enter the value of num1");
+  num1=scan.nextInt();
+  System.out.println("Enter the value of num2");
+  num2=scan.nextInt();
+  int result=num1+num2;
+  //System.out.println(num1+num2);
+  System.out.println("The result is "+result);
+}
+
+ public void subtract(){
+  int num1;
+  int num2;
+  Scanner scan=new Scanner(System.in);
+  System.out.println("Enter the value of num1");
+  num1=scan.nextInt();
+  System.out.println("Enter the value of num2");
+  num2=scan.nextInt();
+ int result=num1-num2;
+ System.out.println("The result is "+result); //result 
+}
+// divide()
+// multiply()
+
+ public static void main(String[] args){
+ CalculatorExercise1b calculator=new CalculatorExerise1b();
+ calculator.add();
+ calculator.subtract();
+ calculator.divide();
+ calculator.multiply();
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------
+public class CalculatorExercise1c {
+ //int num1,num2;  // instance variables/attributes/properties/member variables
+
+
+public void add(int num1,int num2){  // num1 and num2 as parameters are local to add method
+  int result=num1+num2;
+  //System.out.println(num1+num2);
+  System.out.println("The result is "+result);
+}
+
+ public void subtract(int num1,int num2){
+ int result=num1+num2;
+ System.out.println("The result is "+result); //result 
+}
+// divide(int num1,int num2)
+// multiply(int num1,int num2)
+
+ public static void main(String[] args){
+ CalculatorExercise1c calculator=new CalculatorExerise1c();
+ Scanner scan=new Scanner(System.in);
+ int num1;
+ int num2;    // This num1 and num2 are local to the main method
+ System.out.println("Enter the value for num1");
+ num1=scan.nextInt();
+ System.out.println("Enter the value for num2");
+ calculator.add(num1,num2);
+ calculator.subtract(num1,num2);
+ calculator.divide(num1,num2);
+ calculator.multiply(num1,num2);
+}
+}
+
+
+[ 3 sets of num1 and num2 out of which the instance variable are no where used in the code.]
+-----------------------------------------------------------------------------------------------------------
+// Not to repeat data entry make a common method for data entry
+
+public class CalculatorExercise1d {
+ //int num1,num2;  // instance variables/attributes/properties/member variables
+
+
+public void add(int num1,int num2){  // num1 and num2 as parameters are local to add method
+  int result=num1+num2;
+  //System.out.println(num1+num2);
+  System.out.println("The result is "+result);
+}
+
+ public void subtract(int num1,int num2){
+ int result=num1+num2;
+ System.out.println("The result is "+result); //result 
+}
+// divide()
+// multiply()
+
+  public void setData(int num1,int num2){
+   int num1;
+   int num2;
+  }
+
+ public static void main(String[] args){
+ CalculatorExercise1d calculator=new CalculatorExerise1d();
+ Scanner scan=new Scanner(System.in);
+ int num1;
+ int num2;    // This num1 and num2 are local to the main method
+ System.out.println("Enter the value for num1");
+ num1=scan.nextInt();
+ System.out.println("Enter the value for num2");
+ calculator1d.setData(num1,num2);
+ calculator.add(num1,num2);
+ calculator.subtract(num1,num2);
+ calculator.divide(num1,num2);
+ calculator.multiply(num1,num2);
+}
+}
+
+// How from setData we need to pass the data for add,subtract,divide,multiply.
