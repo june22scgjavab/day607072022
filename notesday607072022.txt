@@ -1,0 +1,372 @@
+Package Explorer
+Code editor
+Save the file/files
+Execute the code.
+Try to read .... copy the error and put it in google and search for the error.
+--------------------------------------------------------------------------------------------------------------
+
+Class Hello {
+    public static void main(String[] args){
+      System.out.println("Hello");
+    }
+ }
+
+/* Compilation error as the keyword C is in uppercase */
+Syntax error on token "Class", class expected.
+
+
+class hello {
+    public static void main(String[] args){
+      System.out.println("Hello");
+    }
+}
+
+/* The code will execute. Though while writing the user defined class we wrote the class in smallcase.
+   So for user defined class we can write in smallcase , but it is breaking the convention of writing class */
+
+class Hello {
+    public static void main(String[] args){
+      system.out.println("Hello");
+    }
+}
+
+/* The predefined classes like String and System we cannot write it with any case and that has to start with 
+   uppercase. */
+
+
+class Hello {
+    public static void main(String[] args){
+      System.out.println("Hello")
+    }
+}
+/* We are not up with ; */
+
+
+class Hello {
+    public static void main(String[] args){
+      int i;
+      System.out.println(i);
+    }
+}
+/* We should initialise the variable i */
+
+class Data {
+    public static void main(String[] args){
+      int i;
+      //System.out.println("HEllo");
+    }
+}
+
+/* We wont get any error because we are not accessing the variable.
+
+
+
+class Data {
+    public static void main(String[] args){
+      int i;
+      int j=10;
+      int result=j+i;
+     
+    }
+}
+
+/* So again error */
+
+
+class IncrementDemo1 {
+   public static void  main(String args[]) {
+    int num=12;
+    int result= num++;
+    System.out.println(result);
+    System.out.println(num); 
+   }
+ }
+
+
+class IncrementDemo1 {
+   public static void  main(String args[]) {
+    int num=12;
+    int result= num--;
+    System.out.println(result);
+    System.out.println(num); 
+   }
+ }
+
+class DataDemo {
+   public static void main(String args[]) {
+    int roll=1;
+    String name="Akash";
+    int marks=20;
+    System.out.println("ROLL"+roll+" "+"NAME"+name+" "+"MARKS"+marks);
+   }
+}
+ 
+
+class DataDemo1 {
+   public static void main(String args[]) {
+    int roll=1;
+    String name="Akash";
+    int marks=20;
+    System.out.println("ROLL: "+roll+"\n"+"NAME: "+name+"\n"+"MARKS: "+marks);
+   }
+}
+---------------------------------------------------------------------------
+
+class Data1 {
+    public static void main(String args[]){
+     int a=5;
+     int b=2;
+     int c=a/b;
+     System.out.println(c);  // 2
+    }
+  }
+        
+class Data2 {
+    public static void main(String args[]){
+     int a=5;
+     int b=2;
+     float c=a/b;  //5/2  2.5===> 2 ===> 2.0
+     System.out.println(c);  // 2.0
+    }
+  }
+
+ class Data3{
+    public static void main(String args[]){
+    int num=5;
+    float f=num;
+    System.out.println(f); //5.0
+   }
+ }
+
+class Data4{
+    public static void main(String args[]{
+      int a=5;
+      int b=2;
+      float f=(float)a/b;
+      System.out.println(f); // 2.5
+    }
+  }
+[ SO PLEASE CHECK CAREFULLY THE OPERATIONS WHEN WE HAVE THE DIFFERENT DATA TYPES IN AN EXPRESSION.]
+-----------------------------------------------------------------------------------------
+Control Structures:-
+   * Condition Check 
+      if() / if.... else /if else if else if else
+      switch() {   case 1 : statement/statements ; case 2 : statement/statements ; default : statement/statements   } ; 
+   * Iterations
+      while {}, do{}while, for
+
+-------------------------------------------------------------------------------------------------------
+
+public class IfDemo1 {
+
+	public static void main(String[] args) {
+	
+		int marks=45;
+		if(marks>=90) {
+			System.out.println("Good score");
+		}
+
+	}
+
+}
+=======================================================================
+
+   public class IfDemo2 {
+
+	public static void main(String[] args) {
+	
+		int marks=45;
+		if(marks>=90) {
+			System.out.println("Good score");
+		}
+                else{
+                    System.out.println("Work Hard!!!!");
+                }
+
+	}
+
+}
+
+
+public class IfDemo3 {
+
+	public static void main(String[] args) {
+	
+		int marks=45;
+		if(marks>=90) 
+			System.out.println("Good score");
+		
+                else
+               
+                	System.out.println("Work Hard!!!!");
+               
+
+	}
+
+}
+
+[ In the above code in if block we have just a single statement to execute and that is the reason we have
+not enclosed the statement within braces, but good practice is even to put a single statement in a brace. ]
+So the code similar to IfDemo2 should be used. 
+
+public class IfDemo4 {
+
+	public static void main(String[] args) {
+	
+		int marks=75;
+		if(marks>=90) 
+		{
+			System.out.println("Good score");
+		}
+		else if(marks>=70 && marks<90) {
+			System.out.println("Done well");
+		}
+		
+         else
+                {
+                	System.out.println("Work Hard!!!!");
+                }
+
+	}
+
+}
+--------------------------------------------------------------------------------------------------------
+Nested If : ------> If construct within another If construct.
+
+We will be commenting on marks , if the marks is a positive value.
+
+
+
+public class IfDemo5 {
+
+	public static void main(String[] args) {
+	
+		int marks=-10;
+          if(marks>0)
+            {
+		if(marks>=90) 
+		{
+			System.out.println("Good score");
+		}
+		else if(marks>=70 && marks<90) {
+			System.out.println("Done well");
+		}
+		
+         else
+                {
+                	System.out.println("Work Hard!!!!");
+                }
+
+           } // end of outer if
+           else{
+                System.out.println("Please enter valid marks");
+               }
+
+	}  // End of main
+
+}   // End of class
+
+-------------------------------------------------------------------------------------------------------------
+switch case  
+
+Whether I should use if or we should go for using switch case for condition check?
+
+Design a menu based program to perform add/subtract/divide/multiply
+
+   public class Calculator {
+    public static void main(String args[]){
+    int num1=10;
+    int num2=5;
+    int choice=1;
+    System.out.println("1) ADD");
+    System.out.println("2) SUBTRACT");
+    System.out.println("3) MULTIPLY");
+    System.out.println("4) DIVIDE");
+    switch(choice){
+     case 1 : System.out.println(num1+num2);
+              break;
+     case 2  : System.out.println(num1-num2);
+               break;
+     case 3  : System.out.println(num1*num2);
+               break;
+     case 4  : System.out.println(num1/num2);
+              break;
+     default : System.out.println("The choice is incorrect!!!!");
+     } // end of switch case
+      
+    System.out.println("Bye bye from calculator");
+   } // end of main
+}  // end of class
+
+  
+-----------------------------------------------
+ public class Calculator1 {
+    public static void main(String args[]){
+    int num1=10;
+    int num2=5;
+    int choice=2;
+    System.out.println("1) ADD");
+    System.out.println("2) SUBTRACT");
+    System.out.println("3) MULTIPLY");
+    System.out.println("4) DIVIDE");
+    switch(choice){
+     default : System.out.println("The choice is incorrect!!!!");
+              break;
+     case 1 : System.out.println(num1+num2);
+               break;
+     case 2  : System.out.println(num1-num2);
+               break;
+     case 3  : System.out.println(num1*num2);
+               break;
+     case 4  : System.out.println(num1/num2);
+               break;
+     
+     } // end of switch case
+      
+    System.out.println("Bye bye from calculator");
+   } // end of main
+}  // end of class
+
+
+[ Can we have default in any position within the switch block?
+  Yes
+
+ ]
+
+---------------------------------------------------------------------------------------------------
+Iterations:
+
+/* Enter roll name and marks and display till user enters yes */  
+     while {}
+
+ import java.util.Scanner;
+   public class WhileDemo1{
+     public static void main(String args[]){
+     int roll;
+     String name;
+     int marks;
+     Scanner scan=new Scanner(System.in); // We are creating an object of Scanner class
+     //Scanner class object will help us to accept user inputs
+     String ans="yes";
+     while(ans.equalsIgnoreCase("yes")){
+        System.out.println("Enter the roll number");
+        roll=scan.nextInt();  // nextInt() is a predefined method of Scanner classto accept an int value.
+        System.out.println("Enter the name");
+        name=scan.next(); // next() is a method to accept a String and we have another method of String which          // is nextLine(); next() wont allow to accept multiple words ... with next we can enter a single word
+      // ravi can be entered with next but to enter Ravi Kumar Sharma we have to use nextLine()
+         System.out.println("Enter the marks");
+         marks=scan.nextInt();
+         System.out.println("ROLL: "+roll+"\n"+"NAME: "+name+"\n"+"MARKS: "+marks);
+         System.out.println("Do you want to continue?");
+         ans=scan.next();
+      } // end of while loop
+     } // end of main method
+   }  // end of class
+
+
+
+
+
+
+
+
