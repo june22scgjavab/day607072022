@@ -1147,3 +1147,128 @@ public class CustomerMain2 {
 
 }
 ---------------------------------------------------------------------------------------------------------
+Constructors
+* constructors are special type of method
+* constructors dont have any return type . Not even void.
+* constructor name will same as that of the class name.
+* constructors are used to initialise the member variable of a class and ultimately initialising the object.
+* we can have multiple constructors in the same class.
+* basically we have two types of constructors:
+  *** parameterless or default
+  *** parameterized constructors
+* We dont call the constructors explicitly like other methods for example.
+    cust.setData();
+* Constructors are invoked during the object creation
+* If we dont create a constructor in our code, default constructor is provided by the compiler.
+
+
+public class Book {
+private int id;
+private String title;
+private String authorName;
+
+public void setData(int id,String title, String authorName)
+{
+	this.id=id;
+	this.title=title;
+	this.authorName=authorName;
+}
+
+public void dispData() {
+	System.out.println(id+" "+title+" "+authorName );
+}
+
+}
+
+public class BookDemo {
+
+	public static void main(String[] args) {
+		Book book = new Book(); // The default constructor invoked
+		book.dispData();
+	}
+
+}
+---------------------------------------------------------------
+
+
+public class Book2 {
+private int id;
+private String title;
+private String authorName;
+
+public Book2()
+{
+
+	this.id=1;
+	this.title="Java";
+	this.authorName="Patrick";
+}
+
+public void setData(int id,String title, String authorName)
+{
+	this.id=id;
+	this.title=title;
+	this.authorName=authorName;
+}
+
+public void dispData() {
+	System.out.println(id+" "+title+" "+authorName );
+}
+
+}
+
+
+
+public class BookDemo2 {
+
+	public static void main(String[] args) {
+		Book2 book = new Book2(); // The default constructor invoked
+		book.dispData();
+		Book2 book2=new Book2();
+		book2.dispData();
+	}
+
+}
+
+---------------------------------------------------------------
+
+
+public class Book3 {
+private int id;
+private String title;
+private String authorName;
+
+public Book3(int id,String title, String authorName)
+{
+
+	this.id=id;
+	this.title=title;
+	this.authorName=authorName;
+}
+
+public void setData(int id,String title, String authorName)
+{
+	this.id=id;
+	this.title=title;
+	this.authorName=authorName;
+}
+
+public void dispData() {
+	System.out.println(id+" "+title+" "+authorName );
+}
+
+}
+
+
+
+public class BookDemo3 {
+
+	public static void main(String[] args) {
+		Book3 book = new Book3(1,"Java","Patrick"); // The default constructor invoked
+		book.dispData();
+		Book3 book2=new Book3(2,"HTML","John");
+		book2.dispData();
+	}
+
+}
+--------------------------------------------------------------------------
