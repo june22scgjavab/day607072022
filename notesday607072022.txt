@@ -612,11 +612,11 @@ public void add(){
 // multiply()
 
  public static void main(String[] args){
- CalculatorExercise1 calculator=new CalculatorExerise1();
+ CalculatorExercise1 calculator=new CalculatorExercise1();
  calculator.add();
  calculator.subtract();
- calculator.divide();
- calculator.multiply();
+ //calculator.divide();
+ //calculator.multiply();
 }
 }
 
@@ -655,7 +655,7 @@ public void add(){
 // multiply()
 
  public static void main(String[] args){
- CalculatorExercise1b calculator=new CalculatorExerise1b();
+ CalculatorExercise1b calculator=new CalculatorExercise1b();
  calculator.add();
  calculator.subtract();
  calculator.divide();
@@ -712,41 +712,66 @@ public void add(int num1,int num2){  // num1 and num2 as parameters are local to
 // Not to repeat data entry make a common method for data entry
 
 public class CalculatorExercise1d {
- //int num1,num2;  // instance variables/attributes/properties/member variables
+ 
+int num1,num2;  // instance variables/attributes/properties/member variables
 
-
-public void add(int num1,int num2){  // num1 and num2 as parameters are local to add method
+// add(), subtract(), divide() and multiply() are called as methods/member methods
+public void add(){  
   int result=num1+num2;
   //System.out.println(num1+num2);
   System.out.println("The result is "+result);
 }
 
- public void subtract(int num1,int num2){
+ public void subtract(){
  int result=num1+num2;
  System.out.println("The result is "+result); //result 
 }
-// divide()
-// multiply()
+ public void divide(){
+ int result=num1/num2;
+ System.out.println("The result is "+result);
+ }
+ public void multiply(){
+ int result=num1*num2;
+ System.out.println("The result is "+result);
+ }
 
-  public void setData(int num1,int num2){
-   int num1;
-   int num2;
+  public void setData(int n1,int n2){
+   num1=n1;
+   num2=n2;
   }
 
  public static void main(String[] args){
- CalculatorExercise1d calculator=new CalculatorExerise1d();
+ CalculatorExercise1d calculator=new CalculatorExercise1d();
  Scanner scan=new Scanner(System.in);
  int num1;
  int num2;    // This num1 and num2 are local to the main method
  System.out.println("Enter the value for num1");
  num1=scan.nextInt();
  System.out.println("Enter the value for num2");
+ num2=scan.nextInt();
  calculator1d.setData(num1,num2);
- calculator.add(num1,num2);
- calculator.subtract(num1,num2);
- calculator.divide(num1,num2);
- calculator.multiply(num1,num2);
+ calculator.add();
+ System.out.println("Enter the value for num1");
+ num1=scan.nextInt();
+ System.out.println("Enter the value for num2");
+ num2=scan.nextInt();
+ calculator1d.setData(num1,num2);
+ calculator.subtract();
+ System.out.println("Enter the value for num1");
+ num1=scan.nextInt();
+ System.out.println("Enter the value for num2");
+ num2=scan.nextInt();
+ calculator1d.setData(num1,num2);
+ calculator.divide();
+ System.out.println("Enter the value for num1");
+ num1=scan.nextInt();
+ System.out.println("Enter the value for num2");
+ num2=scan.nextInt();
+ calculator1d.setData(num1,num2);
+ calculator.multiply();
 }
+
+
 }
 
 // How from setData we need to pass the data for add,subtract,divide,multiply.
